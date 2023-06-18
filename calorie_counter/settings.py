@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qjbhs$9+hvv7x0d$vry+61pj6%f@9ml(%e#$7+zn(22lgi17(f'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,14 +80,15 @@ WSGI_APPLICATION = 'calorie_counter.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'calorietracker',
-#         'USER': 'Emelda',
-#         'PASSWORD': 'Drewylate2017',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME':config('DB_NAME'),
+#         'USER':config('DB_USER'),
+#         'PASSWORD':config('DB_PASS'),
 #         'HOST': 'localhost',
 #         'PORT': '3306',
 #     }
 # }
+
 
 DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))

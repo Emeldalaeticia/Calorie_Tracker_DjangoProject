@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import dj_database_url
+from decouple import config
 
 urlpatterns = [
     path('admin/', admin.site.urls),
