@@ -28,7 +28,7 @@ def admin_only(view_func):
         if request.user.groups.exists():
             group=request.user.groups.all()[0].name
         print("Group:", group)  # Add this line to print the group
-        if group=='User':
+        if group=='user':
             return redirect('userPage')
         elif group=='admin':
             return view_func(request,*args,**kwargs)
